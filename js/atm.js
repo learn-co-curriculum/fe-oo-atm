@@ -23,7 +23,7 @@ $(function(){
       return '<li data-id="'+this.id+'">'+this.name+'\'s balance $<span class="balance">'+this.balance+'</span></li>';
     };
     this.option = function() {
-      return '<option value="'+this.id+'">'+this.name+'</option>'
+      return '<option value="'+this.id+'">'+this.name+'</option>';
     }
     this.display = function() {
       $('#user-list').append(this.li());
