@@ -1,56 +1,71 @@
 $(function(){
 
-  var balance        =   0.0,
-      $amountInput   =   $('#amount'),
-      $balanceArea   =   $('#balance'),
-      $choiceSelect  =   $('#choice'),
-      $submitBtn     =   $('#submit'),
-      $atmForm       =   $('#atm');
+  function User(name) {
 
-  function do_transaction(action) {
+    this.constructor.all.push(this);
 
-    var amount = parseFloat($amountInput.val());
+    this.id = this.constructor.count++;
+    this.name = name;
+    this.balance = 0.0;
 
-    if (isNaN(amount) || amount === '') {
-      $balanceArea.text('Fool don\'t be playin!');
-    } 
-    else {
-      if(action === 'deposit') {
-        balance += amount;
-      } 
-      else if (action === 'withdrawal') {
-        balance -= amount;
-      }
-      $balanceArea.text('balance: $'+balance);
+    this.report = function() {
+      $('#user-list').find('li[data-id="'+this.id+'"]').find('.balance').text(this.balance);
     }
+    this.withdrawal = function(amount) {
+      this.balance -= amount;
+      this.report();
+    };
+     this.deposit = function(amount) {
+      this.balance += amount;
+      this.report();
+    };
+    this.li = function() {
+      return '<li data-id="'+this.id+'">'+this.name+'\'s balance $<span class="balance">'+this.balance+'</span></li>';
+    };
+    this.option = function() {
+      return '<option value="'+this.id+'">'+this.name+'</option>'
+    }
+    this.display = function() {
+      $('#user-list').append(this.li());
+      $('#select-user').append(this.option());
+    };
   }
 
-  $atmForm.submit(function(event) {
+  User.all = [];
+  User.count = 0;
 
-    var choice = $choiceSelect.val();
+  //initial hide atm
+  $('#atm').hide();
 
-    do_transaction(choice);
+  //clear inputs on focus
+  $('input[type="text"]').focus(function(){ $(this).val('') });
 
+  //create new users
+
+  $('#create-user').submit(function(event){
+    var name = $('#new-user').val();
+    var newUser = new User(name);
+    newUser.display();
+    //console.log(User.all);
+    $('#atm').show();
     event.preventDefault();
   });
 
-  ////////// Select Menu Aesthetics //////////
+  //transactions
 
-  $amountInput.hide();
-  $submitBtn.hide();
-
-  $choiceSelect.change(function() {
-
-    var choice = $choiceSelect.val();
-
-    if (choice === 'deposit' || choice === 'withdrawal') {
-      $amountInput.show().val('');
-      $submitBtn.show();
-    } 
-    else {
-      $amountInput.hide().val('');
-      $submitBtn.hide();
+  $('#atm').submit(function(event){
+    var userId = $('#select-user').val();
+    var choice = $('#choice').val();
+    var amount = parseFloat($('#amount').val());
+    if (!isNaN(amount)) {
+      if (choice === 'deposit') {
+        User.all[userId].deposit(amount);
+      }
+      else {
+        User.all[userId].withdrawal(amount);
+      }
     }
+    event.preventDefault();
   });
 
 });

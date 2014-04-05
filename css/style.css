@@ -4,6 +4,40 @@ body {
   margin: 20px;
 }
 
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.col {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: lime;
+}
+
 input {
   color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 2em;
+  color: lime;
+}
+
+.balance {
+  color: white;
 }
