@@ -8,23 +8,40 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
   </head>
   <body>
+    <div class="wrapper">
+      <h1>ATM</h1>
+      
+      <div class="col">
+        <form id="create-user" action="#" method="post">
 
-    <h1>ATM</h1>
+          <label for="new-user">Create a new user</label>
+          <input type="text" id="new-user" name="new-user" placeholder="create user">
 
-    <form id="atm" action="#" method="post">
+          <input id="create-user-submit" type="submit" value="create">
+        </form>
 
-      <select name="choice" id="choice">
-        <option selected>-- select choice --</option>
-        <option value="deposit">deposit</option>
-        <option value="withdrawal">withdrawal</option>
-      </select>
+        <form id="atm" action="#" method="post">
 
-      <input type="text" id="amount" name="amount" placeholder="amount">
+          <label for="select-user">Select user</label>
+          <select name="select-user" id="select-user"></select>
 
-      <input id="submit" type="submit" value="submit">
-    </form>
+          <label for="choice">Select a transation</label>
+          <select name="choice" id="choice">
+            <option value="deposit">deposit</option>
+            <option value="withdrawal">withdrawal</option>
+          </select>
 
-    <p id="balance">balance: $0.0</p>
+          <label for="amount">Select an amount</label>
+          <input type="text" id="amount" name="amount" placeholder="amount">
+
+          <input id="atm-submit" type="submit" value="submit">
+        </form>
+      </div>
+      
+      <div class="col">
+        <ul id="user-list"></ul>
+      </div>
+    </div><!-- .wrapper -->
     
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="js/atm.js"></script>
