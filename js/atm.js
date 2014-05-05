@@ -4,7 +4,7 @@ $(function(){
 
     this.constructor.all.push(this);
 
-    this.id = this.constructor.count++;
+    this.id = this.constructor.all.length - 1;
     this.name = name;
     this.balance = 0.0;
 
@@ -32,7 +32,6 @@ $(function(){
   }
 
   User.all = [];
-  User.count = 0;
 
   //initial hide atm
   $('#atm').hide();
