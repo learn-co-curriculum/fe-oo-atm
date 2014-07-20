@@ -1,37 +1,33 @@
 $(function(){
 
   function User(name) {
-
     this.constructor.all.push(this);
-
     this.id = this.constructor.all.length - 1;
     this.name = name;
     this.balance = 0.0;
-
-    this.report = function() {
-      $('#user-list').find('li[data-id="'+this.id+'"]').find('.balance').text(this.balance);
-    }
-    this.withdrawal = function(amount) {
-      this.balance -= amount;
-      this.report();
-    };
-     this.deposit = function(amount) {
-      this.balance += amount;
-      this.report();
-    };
-    this.li = function() {
-      return '<li data-id="'+this.id+'">'+this.name+'\'s balance $<span class="balance">'+this.balance+'</span></li>';
-    };
-    this.option = function() {
-      return '<option value="'+this.id+'">'+this.name+'</option>';
-    }
-    this.display = function() {
-      $('#user-list').append(this.li());
-      $('#select-user').append(this.option());
-    };
   }
-
   User.all = [];
+  User.prototype.report = function() {
+    $('#user-list').find('li[data-id="'+this.id+'"]').find('.balance').text(this.balance);
+  };
+  User.prototype.withdrawal = function(amount) {
+    this.balance -= amount;
+    this.report();
+  };
+  User.prototype.deposit = function(amount) {
+    this.balance += amount;
+    this.report();
+  };
+  User.prototype.li = function() {
+    return '<li data-id="'+this.id+'">'+this.name+'\'s balance $<span class="balance">'+this.balance+'</span></li>';
+  };
+  User.prototype.option = function() {
+    return '<option value="'+this.id+'">'+this.name+'</option>';
+  }
+  User.prototype.display = function() {
+    $('#user-list').append(this.li());
+    $('#select-user').append(this.option());
+  };
 
   //initial hide atm
   $('#atm').hide();
