@@ -1,12 +1,12 @@
 $(function(){
 
   function User(name) {
+    this.id = this.constructor.all.length;
     this.constructor.all.push(this);
-    this.id = this.constructor.all.length - 1;
     this.name = name;
-    this.balance = 0.0;
   }
   User.all = [];
+  User.prototype.balance = 0.0;
   User.prototype.report = function() {
     $('#user-list').find('li[data-id="'+this.id+'"]').find('.balance').text(this.balance);
   };
