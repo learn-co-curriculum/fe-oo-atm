@@ -5,6 +5,8 @@ tags: jquery, oo, atm
 
 # ATM (object oriented version)
 
+## Instructions:
+
 This challenge asks that you work in groups to build a functioning ATM that allows the creation of users. You can select each user from to interact with. Each user can select from deposit or withdrawal to add and subtract from their balance. Their balance should be updated with each transaction and display as a list item in the #user-list ul.
 
 ## Tasks
