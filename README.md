@@ -1,7 +1,4 @@
----
-languages: javascript, html, css
-tags: jquery, oo, atm
----
+
 
 # ATM (object oriented version)
 
