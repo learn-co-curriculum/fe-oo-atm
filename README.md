@@ -14,3 +14,5 @@ This challenge asks that you work in groups to build a functioning ATM that allo
 4. In the js/atm.js file insert the JavaScript code necessary to make the ATM function. Users should be able to deposit and withdraw money and see updated balance with each transaction. Use the comments provided in the atm.js to guide to and give direction to what code goes where. See a live working example at the [site link here](http://jonathangrover.com/teaching/students/fe/challenge-14/index.html)
 
 Note: There are multiple branches with more or less difficultly on the upstream repository. The `master` branch provides step by step comments on how to solve. The branch labeled `harder` has no step by step comment hints if you would like to attempt the lab with no guidance. As always the `solution` branch provides the finished solution if you get stuck.
+
+<a href='https://learn.co/lessons/fe-oo-atm' data-visibility='hidden'>View this lesson on Learn.co</a>
