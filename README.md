@@ -15,4 +15,4 @@ This challenge asks that you work in groups to build a functioning ATM that allo
 
 Note: There are multiple branches with more or less difficultly on the upstream repository. The `master` branch provides step by step comments on how to solve. The branch labeled `harder` has no step by step comment hints if you would like to attempt the lab with no guidance. As always the `solution` branch provides the finished solution if you get stuck.
 
-<a href='https://learn.co/lessons/fe-oo-atm' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/fe-oo-atm' title='ATM (object oriented version)'>ATM (object oriented version)</a> on Learn.co and start learning to code for free.</p>
